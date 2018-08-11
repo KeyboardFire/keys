@@ -23,6 +23,7 @@ cat <<x
     <head>
         <title>Key signatures</title>
         <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width'>
         <style>
         @font-face {
             font-family: FreeSerif;
