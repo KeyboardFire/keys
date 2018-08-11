@@ -1,12 +1,8 @@
 #!/bin/bash
-good=
 notes=()
 for b in eses es '' is isis; do
     for a in f c g d a e b; do
-        x=$a$b
-        if [ $x = ceses ]; then good=1; fi
-        if [ -n "$good" ]; then notes+=($x); fi
-        if [ $x = cisis ]; then good=; fi
+        notes+=($a$b)
     done
 done
 n=${#notes[@]}
@@ -217,6 +213,7 @@ cat <<x
             <table id='tblmain'>
 x
 for i in ${!notes[@]}; do
+    if [ ${notes[i]} = feses ]; then continue; fi
     cat <<x
             <tr class='$( ((i%2)) && echo dark || echo light)'>
                 <th><img class='key' src='img/${notes[i]}.png'></th>
@@ -229,6 +226,7 @@ for i in ${!notes[@]}; do
                 <td><span class='key'>$(f $((i+5)))</span>$( ((i+5 <  n)) && echo "<span class='name'>Locrian</span>"     )</td>
             </tr>
 x
+    if [ ${notes[i]} = cisis ]; then break; fi
 done
 cat <<x
             </table>
